@@ -49,7 +49,7 @@ public class MockDataLoader implements CommandLineRunner {
         List<Quiz> quizList = Arrays.asList(
                 new Quiz("Geography Quiz", "What is the capital of France?",
                         List.of("London", "Paris", "Rome", "Berlin"),
-                        Set.of(2),
+                        Set.of(1),
                         userList.get(0)),
 
                 new Quiz("Color Quiz", "Which of the following are primary colors?",
