@@ -257,7 +257,7 @@ curl --location 'localhost:8080/api/quizzes/1/solve' \
 curl --location 'localhost:8080/api/quizzes' --user "test@gmail.com:secret"  --header 'Content-Type: application/json' --data '{
     "title": "Test Tile",
     "text": "Test text",
-    "options": [ "zero", "one", "tow", "three"],
+    "options": [ "zero", "one", "two", "three"],
     "answer": [0, 2]
 }' | python -m json.tool
 ```
