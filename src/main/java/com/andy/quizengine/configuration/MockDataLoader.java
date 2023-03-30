@@ -36,7 +36,7 @@ public class MockDataLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         // Create some sample users
         List<QuizUser> userList = Arrays.asList(
                 new QuizUser("user1@example.com", passwordEncoder.encode("password1")),
