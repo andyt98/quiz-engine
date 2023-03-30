@@ -1,0 +1,31 @@
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8080
+  error:
+    include-message: always
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/quizdb
+    username: andy
+    password: password
+  h2:
+    console:
+      enabled: true
+      settings:
+        trace: false
+        web-allow-others: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+
+
