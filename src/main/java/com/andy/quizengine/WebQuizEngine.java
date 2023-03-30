@@ -12,7 +12,6 @@ public class WebQuizEngine {
 		SpringApplication.run(WebQuizEngine.class, args);
 	}
 
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
