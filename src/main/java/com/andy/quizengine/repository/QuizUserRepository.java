@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<QuizUser, Long> {
+public interface QuizUserRepository extends JpaRepository<QuizUser, Long> {
 
     Optional<QuizUser> getQuizUserByEmail(String email);
 

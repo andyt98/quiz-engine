@@ -4,7 +4,7 @@ package com.andy.quizengine.service;
 import com.andy.quizengine.exception.UserWithEmailAlreadyExistsException;
 import com.andy.quizengine.model.QuizUser;
 import com.andy.quizengine.model.UserDetailsImpl;
-import com.andy.quizengine.repository.UserRepository;
+import com.andy.quizengine.repository.QuizUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final QuizUserRepository quizUserRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
+    public UserService(QuizUserRepository quizUserRepository, PasswordEncoder passwordEncoder) {
+        this.quizUserRepository = quizUserRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -31,14 +31,14 @@ public class UserService implements UserDetailsService {
     }
 
     public QuizUser getUserByEmail(String email) {
-        return userRepository.getQuizUserByEmail(email).orElseThrow();
+        return quizUserRepository.getQuizUserByEmail(email).orElseThrow();
     }
 
     public void registerUser(QuizUser quizUser) {
         String newUserEmail = quizUser.getEmail();
-        if (userRepository.existsByEmail(newUserEmail)) {
+        if (quizUserRepository.existsByEmail(newUserEmail)) {
             throw new UserWithEmailAlreadyExistsException(newUserEmail);
         }
-        userRepository.save(new QuizUser(newUserEmail, passwordEncoder.encode(quizUser.getPassword())));
+        quizUserRepository.save(new QuizUser(newUserEmail, passwordEncoder.encode(quizUser.getPassword())));
     }
 }

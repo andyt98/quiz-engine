@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class QuizCompletion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private long id;
 
